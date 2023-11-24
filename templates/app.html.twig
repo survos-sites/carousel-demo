@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{% set useAssetMap = app.request.get('useAssetMap', false) %}
 {% block body %}
     <div class="relative h-full max-w-5xl mx-auto px-4">
         <section class="mt-16">
@@ -15,17 +14,11 @@
                     class="swiper"
             >
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="h-64 flex justify-center items-center">Slide 1</div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="h-64 flex justify-center items-center">Slide 2</div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="h-64 flex justify-center items-center">Slide 3</div>
-                    </div>
+                    {% for i in 1..3 %}
+                        <div class="swiper-slide">
+                            <div class="h-64 flex justify-center items-center">Slide {{ i }}</div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <div class="swiper-button-next"></div>
